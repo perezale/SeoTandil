@@ -85,7 +85,7 @@ public class MapEditBean implements Serializable{
 			for(SeoPolyline line : polys){
 				int clasif = s.getClasificacion();
 				String color = Comun.ObtenerColor(clasif);
-				
+				line.setSegmento(s);
 				line.setStrokeColor(color);
 				model.addOverlay(line);
 			}
@@ -310,7 +310,7 @@ public class MapEditBean implements Serializable{
 		if(!clasificaciones[segmento.getClasificacion()].equals(Clasificacion.LIBRE))
 			wsAdapter.guardarSegmento(segmento);
 		
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Selected", "Se grabó el segmento"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Selected", "Se grabï¿½ el segmento"));
 		
 		UpdateView();
 	}

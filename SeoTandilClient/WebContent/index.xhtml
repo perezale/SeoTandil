@@ -82,7 +82,12 @@
     			     	</p>
     			     	<p>Deberá enviar el siguiente mensaje</p>
 					    <h:outputText value="#{mapView.infoWindowMessage}" />
+					    <p>O ingrese su patente para reserva automática:</p>
+					    <h:inputText value="#{mapView.patente}"  id="patente" />
+					     <p:watermark for="patente" value="ABC123" id="watermark" />
+					    <h:commandButton id="btnReserva" value="Reservar" update="growl" styleClass="btn btn-default" actionListener="#{mapView.httpRequest}" />
 					</p:dialog>
+					
 					  		    
 				   			 	
 				 </div>

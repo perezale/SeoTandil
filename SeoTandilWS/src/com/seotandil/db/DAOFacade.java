@@ -95,5 +95,9 @@ public class DAOFacade {
 	    session.close();
 
 	}
+	public static void main(String[] args){
+		DAOFacade dao = new DAOFacade(ConnectionPool.getSessionFactory());
+		List<Edge> obtenerEdges = dao.obtenerEdges();
+	}
 		
 }

@@ -26,8 +26,7 @@ public class Segmento implements Serializable{
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="segmento_id_seq")
-	@SequenceGenerator(name = "segmento_id_seq", sequenceName = "segmento_id_seq", allocationSize =1)  
+	@GeneratedValue
 	private int id;	
 
 	//Lado true = derecha

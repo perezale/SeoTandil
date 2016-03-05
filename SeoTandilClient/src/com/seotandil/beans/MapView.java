@@ -100,7 +100,7 @@ public class MapView implements Serializable{
 			for(SeoPolyline line : polys){
 				int clasif = s.getClasificacion();
 				String color = Comun.ObtenerColor(clasif);
-				
+				line.setSegmento(s);
 				line.setStrokeColor(color);
 				model.addOverlay(line);
 			}
@@ -369,7 +369,7 @@ public class MapView implements Serializable{
 		if(!clasificaciones[segmento.getClasificacion()].equals(Clasificacion.LIBRE))
 			wsAdapter.guardarSegmento(segmento);
 		
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Selected", "Se grabó el segmento"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Selected", "Se grabï¿½ el segmento"));
 		
 		UpdateView();
 	}
@@ -384,22 +384,32 @@ public class MapView implements Serializable{
 		
 	}
 	
-	public String httpRequest(){
+	public String getPatente() {
+		return patente;
+	}
+
+	public void setPatente(String patente) {
+		this.patente = patente;
+	}
+
+	public void httpRequest(){
+		String msg = "";
 		if(patente!=null && patente!="")
 		{
 			if(segmento!=null)
 			{
-				return "OK".equals(wsAdapter.httpRequest(patente, segmento))?"Se ha registrado su estacionamiento":"Ha ocurrido un error, por favor revise sus datos y vuelva a intentarlo.";
+				msg = "OK".equals(wsAdapter.httpRequest(patente, segmento))?"Se ha registrado su estacionamiento":"Ha ocurrido un error, por favor revise sus datos y vuelva a intentarlo.";
 			}
 			else
 			{
-				return "Debe asignarse un segmeto";
+				msg= "Debe asignarse un segmeto";
 			}
 		}
 		else
 		{
-			return "Debe introducirse una patente.";
+			msg= "Debe introducirse una patente.";
 		}
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO", msg));
 	}
 	
 
