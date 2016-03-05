@@ -97,13 +97,12 @@
 						        <p:inputText styleClass="form-control" id="lado" value="#{mapEditView.matchLado(mapEditView.lado)}" required="true" disabled="true"/>	
 					        </div>
 					        <div class="form-group">  
-						        <p:selectOneMenu id="clasificacion" value="#{mapEditView.clasificacion}"  required="true">					       			        
+						        <p:selectOneMenu id="clasificacion" value="#{mapEditView.currentClasification}"  required="true">					       			        
 						        	<f:selectItem itemLabel="Clasificación&nbsp;" itemValue="" noSelectionOption="true" />
-						        	<f:selectItems value="#{mapEditView.clasificaciones}" />
-						        				        				        				        					          									                  
+						        	<f:selectItems value="#{mapEditView.clasificaciones}" />						        				        				        				        					          									                 
 						        </p:selectOneMenu>	
 					        </div>						    
-						    <p:commandButton  value="Guardar" id="ajax" update="mensaje,gmap" actionListener="#{mapEditView.guardarSegmento}" styleClass="ui-priority-primary" />					        
+						    <p:commandButton process="@form" value="Guardar" id="guardarSegmento" update="mensaje, gmap" action="#{mapEditView.guardarSegmento}" styleClass="ui-priority-primary" />					        
 		   					<p:growl id="mensaje" life="2000" showDetail="true" />		        	
 				 		</p:outputPanel>
 					 </div>

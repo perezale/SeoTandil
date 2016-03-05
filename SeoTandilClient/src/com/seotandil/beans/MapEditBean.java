@@ -47,6 +47,7 @@ public class MapEditBean implements Serializable{
 	String cod_calle;
 	Integer altura ;
 	int clasificacion;
+	Clasificacion currentClasification;
 	
 	Clasificacion[] clasificaciones = new Clasificacion[]{
 												Clasificacion.LIBRE,
@@ -257,7 +258,8 @@ public class MapEditBean implements Serializable{
 		
 		calle_seleccionada = segmento_line.getSegmento().getEdge().getStreetName();
 		altura = segmento_line.getSegmento().getAltura();
-		clasificacion = segmento_line.getSegmento().getClasificacion();
+		//clasificacion = segmento_line.getSegmento().getClasificacion();
+		currentClasification = clasificaciones[segmento_line.getSegmento().getClasificacion()];
 		
 		segmento = segmento_line.getSegmento();		
 		
@@ -281,13 +283,16 @@ public class MapEditBean implements Serializable{
 	}
 
 
-	public Clasificacion getClasificacion() {
+	public Clasificacion getClasification() {
 		return clasificaciones[segmento.getClasificacion()];
 	}
 
-	public void setClasificacion(int clasificacion) {
-		this.clasificacion = clasificacion;
-	}
+//	/**
+//	 * @param clasificacion the clasificacion to set
+//	 */
+//	public void setClasificacion(int clasificacion) {
+//		this.clasificacion = clasificacion;
+//	}
 
 	public Boolean getLado() {
 		return lado;
@@ -297,9 +302,9 @@ public class MapEditBean implements Serializable{
 		this.lado = lado;
 	}
 
-	public void guardarSegmento(ActionEvent actionEvent){
+	public void guardarSegmento(){
 		segmento.setAltura(this.altura);
-		segmento.setClasificacion(this.clasificacion);
+		segmento.setClasificacion(Arrays.asList(clasificaciones).indexOf(this.currentClasification));
 		segmento.setCodCalle(this.cod_calle);			
 		
 		Segmento existeSegmento = wsAdapter.obtenerSegmento(segmento.getEdge().getIdEdge(),segmento.isLado() );
@@ -310,11 +315,25 @@ public class MapEditBean implements Serializable{
 		if(!clasificaciones[segmento.getClasificacion()].equals(Clasificacion.LIBRE))
 			wsAdapter.guardarSegmento(segmento);
 		
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Selected", "Se grab� el segmento"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Selected", "Se grabo el segmento"));
 		
 		UpdateView();
 	}
 
+
+	/**
+	 * @return the currentClasification
+	 */
+	public Clasificacion getCurrentClasification() {
+		return currentClasification;
+	}
+
+	/**
+	 * @param currentClasification the currentClasification to set
+	 */
+	public void setCurrentClasification(Clasificacion currentClasification) {
+		this.currentClasification = currentClasification;
+	}
 
 	private void UpdateView() {		
 		segmentos = wsAdapter.obtenerSegmentos();
