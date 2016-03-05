@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" -->
+<!-- 	  xmlns:h="http://java.sun.com/jsf/html" -->
+<!-- 	  xmlns:f="http://java.sun.com/jsf/core" -->
+<!--       xmlns:ui="http://java.sun.com/jsf/facelets" -->
+<!--       xmlns:p="http://primefaces.com/ui"> -->
+<h:head>
+  <title><ui:insert name="title">SeoTandil</ui:insert></title>
+  <!-- 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  -->
+  <script src="http://maps.google.com/maps/api/js?sensor=true|false" 
+	type="text/javascript"></script>  
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/estilos.css" />
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+</h:head>
+
+<h:body>
+<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+	  
+	<div id="header">
+	    <ui:insert name="header">
+	   <div class="jumbotron">
+	      <div class="container ">
+	        <h1><span class="seoTitle">SEO</span>Tandil</h1>
+	        <p>Consulte las zonas de estacionamiento en la ciudad de Tandil.</p>
+	      </div>
+	    </div>
+	    	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
+	    	<!-- <ui:include src="header.xhtml"/> -->
+	    </ui:insert>
+	</div>
+		
+    <div class="container">		
+	<div id="content">
+	  <ui:insert name="content">
+	    	
+	<!--     	Lista de segmentos: -->
+	<!--     	<ul> -->
+	<!-- 	    	<ui:repeat var="segmento" value="#{segmentoBean.segmentos}"> -->
+	<!-- 	    	    <li><h:outputLabel value="#{segmento.clasificacion }"></h:outputLabel>  </li>	 -->
+	<!-- 	    	</ui:repeat> -->
+	<!--     	</ul> -->
+	<!--     	 include your content file or uncomment the include below and create content.xhtml in this directory -->
+	<!-- 	  	<div> -->
+	<!--     	<ui:include src="content.xhtml"/>   -->
+	<!--     	Lista de Nodes -->
+	<!--     	<ul> -->
+	<!-- 	    	<ui:repeat var="node" value="#{nodeBean.nodes}"> -->
+	<!-- 	    	    <li><h:outputLabel value="#{node.id_node }"></h:outputLabel>  </li>	 -->
+	<!-- 	    	</ui:repeat> -->
+	<!--     	</ul> -->
+	<!--     	Lista de Edges -->
+	<!--     	<ul> -->
+	<!--     	<ui:repeat var="edge" value="#{edgeBean.edges}"> -->
+	<!--     	    <li><h:outputLabel value="#{edge.id_edge}"></h:outputLabel>  </li>	 -->
+	<!--     	</ui:repeat> -->
+	<!--     	</ul> -->
+	    	
+	    	
+	    	<h:form prependId="false">    
+			    <p:growl id="growl" life="3000" showDetail="true" />
+			 
+			    <p:gmap widgetVar="gmap" id="mimapa" center="-37.329,-59.137" zoom="15" type="ROAD" style="width:100%;height:600px" >
+			      
+			    </p:gmap>
+			    <h:inputHidden id="hiddengeojson" value="#{mapaBean.geojson}" ></h:inputHidden>
+			</h:form>
+	    	<!-- </div> -->
+	  </ui:insert>
+	</div>
+	<hr/>
+	<footer>
+	  <ui:insert name="footer">
+	    	<p>Desarrollado por: <a href="mailto:alecio88@gmail.com" >Alejandro Pérez</a> y <a href="mailto:damblanco90@gmail.com" >Damián Blanco</a> | <a href="panel.xhtml">Panel</a></p>
+	    	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
+			<!--<ui:include src="footer.xhtml"/>  -->
+	  </ui:insert>
+	</footer>
+</div>
+<script>
+
+function suma(a,b){
+	return a+b;
+}
+
+$(document).ready(
+		function(){
+			console.log("tetas");
+			var mapa = PF('gmap').getMap();
+			//mapa.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
+			console.log($('#hiddengeojson').val());
+			
+			var json = JSON.parse($('#hiddengeojson').val());
+			
+			var estilosSEO = {
+					strokeColor: "#f99c3e",
+					strokeOpacity: 1,
+					strokeWeight: 3					
+					
+			};	
+			
+			mapa.data.addGeoJson(json);
+			mapa.data.setStyle(estilosSEO);
+			
+			//BUSCAR EVENTO SETCHANGED
+			$("#hiddengeojson").change(
+					function(){
+						//PF('gmap').data.loadGeoJson(this.value);
+						 PF('gmap').getMap().data.addGeoJson($('#hiddengeojson').value);
+					}
+			)
+	}
+);
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</h:body>
+
+</html>
