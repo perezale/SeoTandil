@@ -1,0 +1,138 @@
+<xs:schema xmlns:tns="http://ws.seotandil.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ws.seotandil.com/" version="1.0">
+
+  <xs:element name="eliminarSegmento" type="tns:eliminarSegmento"/>
+
+  <xs:element name="eliminarSegmentoResponse" type="tns:eliminarSegmentoResponse"/>
+
+  <xs:element name="guardarSegmento" type="tns:guardarSegmento"/>
+
+  <xs:element name="guardarSegmentoResponse" type="tns:guardarSegmentoResponse"/>
+
+  <xs:element name="httpRequest" type="tns:httpRequest"/>
+
+  <xs:element name="httpRequestResponse" type="tns:httpRequestResponse"/>
+
+  <xs:element name="obtenerEdges" type="tns:obtenerEdges"/>
+
+  <xs:element name="obtenerEdgesResponse" type="tns:obtenerEdgesResponse"/>
+
+  <xs:element name="obtenerNodes" type="tns:obtenerNodes"/>
+
+  <xs:element name="obtenerNodesResponse" type="tns:obtenerNodesResponse"/>
+
+  <xs:element name="obtenerSegmento" type="tns:obtenerSegmento"/>
+
+  <xs:element name="obtenerSegmentoResponse" type="tns:obtenerSegmentoResponse"/>
+
+  <xs:element name="obtenerSegmentos" type="tns:obtenerSegmentos"/>
+
+  <xs:element name="obtenerSegmentosResponse" type="tns:obtenerSegmentosResponse"/>
+
+  <xs:complexType name="httpRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="tns:segmento"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="segmento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="altura" type="xs:int"/>
+      <xs:element name="clasificacion" type="xs:int"/>
+      <xs:element minOccurs="0" name="cod_calle" type="xs:string"/>
+      <xs:element minOccurs="0" name="edge" type="tns:edge"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="lado" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="edge">
+    <xs:sequence>
+      <xs:element name="id_edge" type="xs:int"/>
+      <xs:element name="is_wrong_way" type="xs:boolean"/>
+      <xs:element name="length_km" type="xs:double"/>
+      <xs:element minOccurs="0" name="node_from" type="tns:node"/>
+      <xs:element minOccurs="0" name="node_to" type="tns:node"/>
+      <xs:element name="one_way" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="street_name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="node">
+    <xs:sequence>
+      <xs:element name="id_node" type="xs:int"/>
+      <xs:element name="latitud" type="xs:float"/>
+      <xs:element name="longitud" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="httpRequestResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerSegmentos">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerSegmentosResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:segmento"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerSegmento">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerSegmentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:segmento"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="guardarSegmento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:segmento"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="guardarSegmentoResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarSegmento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:segmento"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="eliminarSegmentoResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerEdges">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerEdgesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:edge"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerNodes">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="obtenerNodesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:node"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

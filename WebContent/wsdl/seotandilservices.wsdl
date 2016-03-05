@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SeoTandilServicesService" targetNamespace="http://ws.seotandil.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.seotandil.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://ws.seotandil.com/" schemaLocation="seotandilservices_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="eliminarSegmento">
+    <wsdl:part name="parameters" element="tns:eliminarSegmento">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerSegmentos">
+    <wsdl:part name="parameters" element="tns:obtenerSegmentos">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerSegmentoResponse">
+    <wsdl:part name="parameters" element="tns:obtenerSegmentoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="httpRequest">
+    <wsdl:part name="parameters" element="tns:httpRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="guardarSegmento">
+    <wsdl:part name="parameters" element="tns:guardarSegmento">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerNodes">
+    <wsdl:part name="parameters" element="tns:obtenerNodes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerSegmento">
+    <wsdl:part name="parameters" element="tns:obtenerSegmento">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerEdges">
+    <wsdl:part name="parameters" element="tns:obtenerEdges">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerSegmentosResponse">
+    <wsdl:part name="parameters" element="tns:obtenerSegmentosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="guardarSegmentoResponse">
+    <wsdl:part name="parameters" element="tns:guardarSegmentoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="httpRequestResponse">
+    <wsdl:part name="parameters" element="tns:httpRequestResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerEdgesResponse">
+    <wsdl:part name="parameters" element="tns:obtenerEdgesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerNodesResponse">
+    <wsdl:part name="parameters" element="tns:obtenerNodesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="eliminarSegmentoResponse">
+    <wsdl:part name="parameters" element="tns:eliminarSegmentoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ISeoTandilServices">
+    <wsdl:operation name="httpRequest">
+      <wsdl:input name="httpRequest" message="tns:httpRequest">
+    </wsdl:input>
+      <wsdl:output name="httpRequestResponse" message="tns:httpRequestResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerSegmentos">
+      <wsdl:input name="obtenerSegmentos" message="tns:obtenerSegmentos">
+    </wsdl:input>
+      <wsdl:output name="obtenerSegmentosResponse" message="tns:obtenerSegmentosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerSegmento">
+      <wsdl:input name="obtenerSegmento" message="tns:obtenerSegmento">
+    </wsdl:input>
+      <wsdl:output name="obtenerSegmentoResponse" message="tns:obtenerSegmentoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarSegmento">
+      <wsdl:input name="guardarSegmento" message="tns:guardarSegmento">
+    </wsdl:input>
+      <wsdl:output name="guardarSegmentoResponse" message="tns:guardarSegmentoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarSegmento">
+      <wsdl:input name="eliminarSegmento" message="tns:eliminarSegmento">
+    </wsdl:input>
+      <wsdl:output name="eliminarSegmentoResponse" message="tns:eliminarSegmentoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEdges">
+      <wsdl:input name="obtenerEdges" message="tns:obtenerEdges">
+    </wsdl:input>
+      <wsdl:output name="obtenerEdgesResponse" message="tns:obtenerEdgesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNodes">
+      <wsdl:input name="obtenerNodes" message="tns:obtenerNodes">
+    </wsdl:input>
+      <wsdl:output name="obtenerNodesResponse" message="tns:obtenerNodesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SeoTandilServicesServiceSoapBinding" type="tns:ISeoTandilServices">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="httpRequest">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="httpRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="httpRequestResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerSegmentos">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obtenerSegmentos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerSegmentosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerSegmento">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obtenerSegmento">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerSegmentoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarSegmento">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="eliminarSegmento">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="eliminarSegmentoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarSegmento">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="guardarSegmento">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="guardarSegmentoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEdges">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obtenerEdges">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerEdgesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNodes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obtenerNodes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obtenerNodesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SeoTandilServicesService">
+    <wsdl:port name="SeoTandilServicesPort" binding="tns:SeoTandilServicesServiceSoapBinding">
+      <soap:address location="http://localhost:8080/SeoTandilWS/services/seotandilservices"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
