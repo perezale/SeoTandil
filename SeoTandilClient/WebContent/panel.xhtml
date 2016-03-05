@@ -14,6 +14,7 @@
 <!--       xmlns:p="http://primefaces.com/ui"> -->
 <h:head>
   <title><ui:insert name="title">SeoTandil</ui:insert></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
   <!-- 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   -->
@@ -64,7 +65,7 @@
 				     -->
 				     <p:outputPanel  >
 				     </p:outputPanel>
-				     <p:gmap  id="gmap" center="-37.329,-59.137" zoom="15" type="ROAD" style="width:100%;height:600px"
+				     <p:gmap  id="gmap" center="-37.329,-59.137" zoom="15" type="ROAD" style="width:100%"
     							model="#{mapEditView.model}" widgetVar="map" >
     						<p:ajax event="overlaySelect" listener="#{mapEditView.onPolylineSelect}" update="growl,editPane" />    						
     			     </p:gmap>
@@ -102,7 +103,7 @@
 						        	<f:selectItems value="#{mapEditView.clasificaciones}" />						        				        				        				        					          									                 
 						        </p:selectOneMenu>	
 					        </div>						    
-						    <p:commandButton process="@form" value="Guardar" id="guardarSegmento" update="mensaje, gmap" action="#{mapEditView.guardarSegmento}" styleClass="ui-priority-primary" />					        
+						    <p:commandButton process="@form" value="Guardar" id="guardarSegmento" update="mensaje, gmap" action="#{mapEditView.guardarSegmento}" styleClass="btn-primary" />					        
 		   					<p:growl id="mensaje" life="2000" showDetail="true" />		        	
 				 		</p:outputPanel>
 					 </div>

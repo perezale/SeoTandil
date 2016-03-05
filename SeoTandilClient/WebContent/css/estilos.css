@@ -1,7 +1,7 @@
 .jumbotron{ 
 	/*background-image: url('http://www.cybertandil.com.ar/fotos/panoramicas/mari_mari.jpg');*/
 	/*background-image: url('http://img.wallpaperstock.net:81/blurred-abstract-background-wallpapers_42466_2560x1600.jpg');*/
-	background-image: url('../img/abstract_bg.jpg');	
+	background-image: url('../img/bg2.png');	
 	background-position-y: -53px;
 	color: #fff;
 	
@@ -19,7 +19,7 @@
 
 @media (max-width: 1366px) {
    .jumbotron{
-	   padding-top: 0px;
+	   padding-top: 10px;
 	   padding-bottom: 0px;
    }
    #gmap{
@@ -33,13 +33,32 @@
    }  
 }
 
+@media screen and (max-width : 480px){
+	#infoDialog {
+    	margin-top: -10%;
+	}
+	#gmap{
+   	   height: 400px;
+   }  	
+   #subtitle{
+   		display:none;
+   }
+}
+
 .seoTitle{
 	color: #f99c3e;	
 }
 
-.container{
-	width:80%;
-}
 .ui-icon-loading{
 	margin-left: 500px;
+}
+.jumbotron {
+	background-color : transparent;
+}
+.jumbotron h1{
+	    text-shadow: 1px 1px 2px rgba(70, 70, 70, 1);
+}
+#header-info {
+	float: right; 
+	font-size: 1.3em;	
 }
