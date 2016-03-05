@@ -37,7 +37,7 @@
 	      org.postgresql.Driver
 	   </property>
 	   <property name="hibernate.connection.url">
-	      jdbc:postgresql://localhost:5432/seotandil
+	      jdbc:postgresql://192.168.1.11:5432/seotandil
 	   </property>
 	   <property name="hibernate.connection.username">
 	      seotandil
