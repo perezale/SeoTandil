@@ -37,13 +37,13 @@
 	      com.mysql.jdbc.Driver
 	   </property>
 	   <property name="hibernate.connection.url">
-	      jdbc:mysql://192.168.1.10:3306/seotandil
+	      jdbc:mysql://127.0.0.1:3306/seotandil
 	   </property>
 	   <property name="hibernate.connection.username">
 	      root	
 	   </property>
 	   <property name="hibernate.connection.password">
-	      root
+	      
 	   </property>
 	   
 	   <property name="connection_pool_size">15</property>

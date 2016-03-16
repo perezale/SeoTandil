@@ -18,6 +18,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/SSD/Desa/sites/workspace/SeoTandil/SeoTandilClient/lib/GeoJava2Json-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/GeoJava2Json-1.0-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
