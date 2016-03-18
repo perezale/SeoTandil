@@ -30,25 +30,21 @@
 		</dependency>
 
 		<!-- JSF -->
-		<!-- JSF -->
 		<dependency>
-  <groupId>com.sun.faces</groupId>
-  <artifactId>jsf-api</artifactId>
-  <version>2.1.13</version>
-</dependency>
- <dependency>
-    <groupId>org.glassfish</groupId>
-    <artifactId>javax.faces</artifactId>
-    <version>2.1.6</version>
- </dependency>
-<dependency>
-  <groupId>javax.servlet</groupId>
-  <artifactId>javax.servlet-api</artifactId>
-  <version>3.0.1</version>
-</dependency>
-
-
-
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.primefaces</groupId>
@@ -62,24 +58,12 @@
 			<version>1.0.10</version>
 		</dependency>
 
-		<!-- Dependencias Java2GeoJson -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.codehaus.jackson</groupId> -->
-		<!-- <artifactId>jackson-mapper-asl</artifactId> -->
-		<!-- <version>1.9.13</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <artifactId>jackson-core-asl</artifactId> -->
-		<!-- <groupId>org.codehaus.jackson</groupId> -->
-		<!-- <type>jar</type> -->
-		<!-- <version>1.9.13</version> -->
-		<!-- </dependency> -->
 		<dependency>
 			<groupId>math.geom2d</groupId>
 			<artifactId>javaGeom</artifactId>
 			<version>0.11.1</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
@@ -101,14 +85,6 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			<!-- <plugin> -->
-			<!-- <artifactId>maven-compiler-plugin</artifactId> -->
-			<!-- <version>3.1</version> -->
-			<!-- <configuration> -->
-			<!-- <fork>true</fork> -->
-			<!-- <executable>C:\Archivos de programa\Java\jdk1.7.0_40\bin\javac.exe</executable> -->
-			<!-- </configuration> -->
-			<!-- </plugin> -->
 
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
